@@ -44,7 +44,7 @@
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{ max-width:720px; margin:0 auto; padding:0 24px; }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 24px; }
 
   header.site{ padding:64px 0 28px; border-bottom:1px solid var(--line); }
   .hero{
@@ -201,6 +201,16 @@
   }
   footer.site p{ font-size:13.5px; color:var(--text-dim); max-width:60ch; margin:0 0 10px; }
   footer.site .updated{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--text-dim); }
+
+  details.aside{margin-top:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:4px 18px;}
+  details.aside summary{cursor:pointer;padding:14px 0;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--teal);list-style:none;}
+  details.aside summary::-webkit-details-marker{display:none;}
+  details.aside summary::before{content:"+ ";font-weight:600;}
+  details.aside[open] summary::before{content:"\2212 ";}
+  details.aside[open] summary{border-bottom:1px solid var(--line);margin-bottom:14px;}
+  details.aside .inner{padding-bottom:16px;}
+
+  .hm-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; margin-top:4px; }
 </style>
 </head>
 <body>
@@ -212,6 +222,7 @@
     <h1 class="title">I Charged My Geely EX5 for 4,000 Miles — and Paid Just £67</h1>
     <p class="dek">Six months of real-world Geely EX5 charging on Octopus Agile — including a month when the average electricity price for my EV charging was actually negative.</p>
     <p class="byline">By Yuvraj | EV Energy Journal <span style="opacity:0.5; padding:0 6px;">|</span> ~12 min read</p>
+    <p style="font-style:italic; color:var(--text-dim); font-size:14.5px; margin:10px 0 0;">Grab a cuppa &mdash; this one's a slow unravel, not a quick scan.</p>
   </header>
 
   <div class="meter">
@@ -251,20 +262,24 @@
     <table class="example">
       <thead><tr><th>Time</th><th>Agile price</th><th>What I'd do</th></tr></thead>
       <tbody>
-        <tr><td>11:30–12:00</td><td class="neg">−2.59p/kWh</td><td class="action">Charge — I'm being paid to</td></tr>
-        <tr><td>13:00–13:30</td><td class="neg">−2.04p/kWh</td><td class="action">Charge — still negative</td></tr>
-        <tr><td>15:30–16:00</td><td>+1.82p/kWh</td><td class="action">Only if I can't wait</td></tr>
-        <tr><td>17:30–18:00</td><td>+44.63p/kWh</td><td class="action">Don't charge — evening peak</td></tr>
+        <tr><td>11:30–12:00</td><td style="color:#367C4D; font-weight:600;">−2.59p/kWh</td><td class="action">Charge — I'm being paid to</td></tr>
+        <tr><td>13:00–13:30</td><td style="color:#367C4D; font-weight:600;">−2.04p/kWh</td><td class="action">Charge — still negative</td></tr>
+        <tr><td>14:30–15:00</td><td style="color:#6F8E52; font-weight:600;">+1.82p/kWh</td><td class="action">Still peanuts — happy to charge</td></tr>
+        <tr><td>15:30–16:00</td><td style="color:#B6623E; font-weight:600;">+8.20p/kWh</td><td class="action">Only if I can't wait</td></tr>
+        <tr><td>17:30–18:00</td><td style="color:#B34031; font-weight:600;">+44.63p/kWh</td><td class="action">Don't charge — evening peak</td></tr>
       </tbody>
     </table>
     <p>Those are genuine half-hourly prices from the Octopus app. The midday trough went <strong>negative</strong>, then the price climbed to a 45p-ish evening peak a few hours later — a swing of nearly 50p/kWh within the same day.</p>
-    <p>The important thing is how I think about those numbers. A public rapid charger costs me around <strong>60p/kWh or more</strong>, so almost any home price is a win. But on Agile I'm not really chasing "cheap" — I'm chasing <strong>free or negative</strong>:</p>
-    <div class="callout">
-      <p><strong style="color:var(--text)">60p+/kWh</strong> — a public rapid charger. This is the cost I'm trying to avoid.</p>
-      <p><strong style="color:var(--text)">Around 7p/kWh or below</strong> — genuinely cheap, but I only take it if the car needs charge now and I can't wait for a better window. It's my "can't-wait" fallback, not the plan.</p>
-      <p><strong style="color:var(--text)">0p/kWh or below</strong> — the sweet spot. I plan charging into these windows, and sometimes the price is negative, so I'm actually paid to fill the battery.</p>
-      <p>So the question isn't "is 5p cheap?" — of course it is. It's "why pay 5p when, a bit of patience later, the same energy is free or negative?" The 7p line is just my limit for when patience isn't an option.</p>
-    </div>
+    <p>A public rapid charger costs me around 60p/kWh or more, so almost any home price is a win — but on Agile I'm not really chasing "cheap," I'm chasing <strong>free or negative</strong>.</p>
+    <details class="aside">
+      <summary>How I think about the price tiers</summary>
+      <div class="inner">
+        <p style="margin:0 0 14px;"><strong style="color:var(--text);">60p+/kWh</strong> — a public rapid charger. This is the cost I'm trying to avoid.</p>
+        <p style="margin:0 0 14px;"><strong style="color:var(--text);">Around 7p/kWh or below</strong> — genuinely cheap, but I only take it if the car needs charge now and I can't wait for a better window. It's my "can't-wait" fallback, not the plan.</p>
+        <p style="margin:0 0 14px;"><strong style="color:var(--text);">0p/kWh or below</strong> — the sweet spot. I plan charging into these windows, and sometimes the price is negative, so I'm actually paid to fill the battery.</p>
+        <p style="margin:0;">So the question isn't "is 5p cheap?" — of course it is. It's "why pay 5p when, a bit of patience later, the same energy is free or negative?" The 7p line is just my limit for when patience isn't an option.</p>
+      </div>
+    </details>
   </section>
 
   <section>
@@ -291,7 +306,7 @@
 
     <div class="entry">
       <div class="entry-month">April — the experiment gets off to a ridiculous start</div>
-      <p>April was my first month on the tariff, and the experiment got off to a ridiculous start. I charged around 79&nbsp;kWh for a cost of just £3.08 — an average of 3.9p/kWh, with 64% of it falling in negative-price periods. I was still getting used to the car, the charger and Agile, so I certainly wasn't optimising every half-hour. The car simply happened to be at home while some very cheap periods passed through. <strong>79&nbsp;kWh. £3.08. Roughly 310 miles.</strong> Not a bad start.</p>
+      <p>April was my first month on the tariff. I charged around 79&nbsp;kWh for a cost of just £3.08 — an average of 3.9p/kWh, with 64% of it falling in negative-price periods. I was still getting used to the car, the charger and Agile, so I certainly wasn't optimising every half-hour. The car simply happened to be at home while some very cheap periods passed through. <strong>79&nbsp;kWh. £3.08. Roughly 310 miles.</strong> Not a bad start.</p>
       <div class="entry-stats">
         <div class="cell"><div class="v">3.9p</div><div class="l">avg price / kWh</div></div>
         <div class="cell"><div class="v">£3.08</div><div class="l">EV cost</div></div>
@@ -324,7 +339,7 @@
 
     <div class="entry">
       <div class="entry-month">July — more miles, still very cheap</div>
-      <p>July was another strong month — roughly 800 miles of driving on <strong>202.4&nbsp;kWh</strong>. Despite the higher usage, the total cost was only <strong>£7.72</strong>, at an average of 3.8p/kWh, with around 45% of it at negative prices. Once again I wasn't chasing every cheap half-hour; the car just took what was available while it was parked.</p>
+      <p>July was another strong month — roughly 800 miles on <strong>202.4&nbsp;kWh</strong> for just <strong>£7.72</strong>, at an average of 3.8p/kWh with 45% of it at negative prices.</p>
       <div class="entry-stats">
         <div class="cell"><div class="v">3.8p</div><div class="l">avg price / kWh</div></div>
         <div class="cell"><div class="v">£7.72</div><div class="l">EV cost</div></div>
@@ -335,7 +350,7 @@
 
     <div class="entry">
       <div class="entry-month">August — still cheap, but less spectacular</div>
-      <p>A fixed-day full charge for a trip meant some charging had to happen in more expensive periods: <strong>178.7&nbsp;kWh → £21.86 → 12.2p/kWh</strong> average. Even so, around a third of it still fell in negative-price windows. If every month looked like April or June, the conclusion would be easy — but real life doesn't work that way, and that's exactly what makes a month like this worth including.</p>
+      <p>A fixed-day full charge for a trip meant some charging had to happen in more expensive periods: <strong>178.7&nbsp;kWh → £21.86 → 12.2p/kWh</strong> average. Even so, around a third of it still fell in negative-price windows.</p>
       <div class="entry-stats">
         <div class="cell"><div class="v">12.2p</div><div class="l">avg price / kWh</div></div>
         <div class="cell"><div class="v">£21.86</div><div class="l">EV cost</div></div>
@@ -534,14 +549,15 @@
       </div>
       <div class="chart-card">
         <h3>Calendar heatmap — negative hours per day</h3>
-        <p style="font-size:13.5px; color:var(--text-dim); margin:0 0 14px;">Darker green = more negative hours that day. Weekends outlined in gold.</p>
+        <p style="font-size:13.5px; color:var(--text-dim); margin:0 0 14px;">Darker green = more negative hours that day.</p>
+        <div class="hm-scroll">
         <!-- BEGIN:chart_neg_calendar -->
-        <svg viewBox="0 0 680 238" width="100%" role="img" aria-label="Calendar heatmap of negative-price hours per day">
-          <text x="60" y="18" text-anchor="middle" class="bar-label" font-size="9">1</text>
-          <text x="214" y="18" text-anchor="middle" class="bar-label" font-size="9">8</text>
-          <text x="368" y="18" text-anchor="middle" class="bar-label" font-size="9">15</text>
-          <text x="522" y="18" text-anchor="middle" class="bar-label" font-size="9">22</text>
-          <text x="676" y="18" text-anchor="middle" class="bar-label" font-size="9">29</text>
+        <svg viewBox="0 0 744 238" width="100%" style="min-width:744px" role="img" aria-label="Calendar heatmap of negative-price hours per day">
+          <text x="60" y="18" text-anchor="middle" class="bar-label" font-size="10">1</text>
+          <text x="214" y="18" text-anchor="middle" class="bar-label" font-size="10">8</text>
+          <text x="368" y="18" text-anchor="middle" class="bar-label" font-size="10">15</text>
+          <text x="522" y="18" text-anchor="middle" class="bar-label" font-size="10">22</text>
+          <text x="676" y="18" text-anchor="middle" class="bar-label" font-size="10">29</text>
           <text x="20" y="38" class="bar-label">Apr</text>
           <g>
             <title>Wednesday, 1 April 2026</title>
@@ -630,7 +646,7 @@
           <g>
             <title>Wednesday, 22 April 2026 &mdash; 4h at a negative price</title>
             <rect x="512" y="24" width="19" height="19" rx="3" fill="#C9DBC4" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="522" y="38" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">4</text>
+            <text x="522" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">4</text>
           </g>
           <g>
             <title>Thursday, 23 April 2026</title>
@@ -659,12 +675,12 @@
           <g>
             <title>Wednesday, 29 April 2026 &mdash; 5.5h at a negative price</title>
             <rect x="666" y="24" width="19" height="19" rx="3" fill="#B7CEAD" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="676" y="38" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">6</text>
+            <text x="676" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">6</text>
           </g>
           <g>
             <title>Thursday, 30 April 2026 &mdash; 6.5h at a negative price</title>
             <rect x="688" y="24" width="19" height="19" rx="3" fill="#ABC69D" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="698" y="38" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">6</text>
+            <text x="698" y="38" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">6</text>
           </g>
           <text x="20" y="68" class="bar-label">May</text>
           <g>
@@ -807,7 +823,7 @@
           <g>
             <title>Thursday, 4 June 2026 &mdash; 1.5h at a negative price</title>
             <rect x="116" y="84" width="19" height="19" rx="3" fill="#E1E5D7" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="126" y="98" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">2</text>
+            <text x="126" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">2</text>
           </g>
           <g>
             <title>Friday, 5 June 2026</title>
@@ -820,7 +836,7 @@
           <g>
             <title>Sunday, 7 June 2026 &mdash; 11h at a negative price</title>
             <rect x="182" y="84" width="19" height="19" rx="3" fill="#6C9F6A" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="192" y="98" text-anchor="middle" font-size="8" font-weight="700" fill="#F5F3EE">11</text>
+            <text x="192" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#F5F3EE">11</text>
           </g>
           <g>
             <title>Monday, 8 June 2026</title>
@@ -845,7 +861,7 @@
           <g>
             <title>Saturday, 13 June 2026 &mdash; 9h at a negative price</title>
             <rect x="314" y="84" width="19" height="19" rx="3" fill="#8CB178" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="324" y="98" text-anchor="middle" font-size="8" font-weight="700" fill="#F5F3EE">9</text>
+            <text x="324" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#F5F3EE">9</text>
           </g>
           <g>
             <title>Sunday, 14 June 2026</title>
@@ -902,12 +918,12 @@
           <g>
             <title>Saturday, 27 June 2026 &mdash; 3.5h at a negative price</title>
             <rect x="622" y="84" width="19" height="19" rx="3" fill="#CEDDC8" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="632" y="98" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">4</text>
+            <text x="632" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">4</text>
           </g>
           <g>
             <title>Sunday, 28 June 2026 &mdash; 6.5h at a negative price</title>
             <rect x="644" y="84" width="19" height="19" rx="3" fill="#ABC69D" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="654" y="98" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">6</text>
+            <text x="654" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">6</text>
           </g>
           <g>
             <title>Monday, 29 June 2026</title>
@@ -925,7 +941,7 @@
           <g>
             <title>Thursday, 2 July 2026 &mdash; 8h at a negative price</title>
             <rect x="72" y="114" width="19" height="19" rx="3" fill="#99BA86" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="82" y="128" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">8</text>
+            <text x="82" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">8</text>
           </g>
           <g>
             <title>Friday, 3 July 2026</title>
@@ -934,7 +950,7 @@
           <g>
             <title>Saturday, 4 July 2026 &mdash; 8.5h at a negative price</title>
             <rect x="116" y="114" width="19" height="19" rx="3" fill="#93B67F" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="126" y="128" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">8</text>
+            <text x="126" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">8</text>
           </g>
           <g>
             <title>Sunday, 5 July 2026</title>
@@ -967,7 +983,7 @@
           <g>
             <title>Sunday, 12 July 2026 &mdash; 5.5h at a negative price</title>
             <rect x="292" y="114" width="19" height="19" rx="3" fill="#B7CEAD" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="302" y="128" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">6</text>
+            <text x="302" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">6</text>
           </g>
           <g>
             <title>Monday, 13 July 2026</title>
@@ -1020,12 +1036,12 @@
           <g>
             <title>Saturday, 25 July 2026 &mdash; 8h at a negative price</title>
             <rect x="578" y="114" width="19" height="19" rx="3" fill="#99BA86" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="588" y="128" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">8</text>
+            <text x="588" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">8</text>
           </g>
           <g>
             <title>Sunday, 26 July 2026 &mdash; 5h at a negative price</title>
             <rect x="600" y="114" width="19" height="19" rx="3" fill="#BDD3B5" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="610" y="128" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">5</text>
+            <text x="610" y="128" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">5</text>
           </g>
           <g>
             <title>Monday, 27 July 2026</title>
@@ -1067,7 +1083,7 @@
           <g>
             <title>Wednesday, 5 August 2026 &mdash; 6h at a negative price</title>
             <rect x="138" y="144" width="19" height="19" rx="3" fill="#B1CAA5" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="148" y="158" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">6</text>
+            <text x="148" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">6</text>
           </g>
           <g>
             <title>Thursday, 6 August 2026</title>
@@ -1080,7 +1096,7 @@
           <g>
             <title>Saturday, 8 August 2026 &mdash; 5.5h at a negative price</title>
             <rect x="204" y="144" width="19" height="19" rx="3" fill="#B7CEAD" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="214" y="158" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">6</text>
+            <text x="214" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">6</text>
           </g>
           <g>
             <title>Sunday, 9 August 2026</title>
@@ -1173,7 +1189,7 @@
           <g>
             <title>Monday, 31 August 2026 &mdash; 3h at a negative price</title>
             <rect x="710" y="144" width="19" height="19" rx="3" fill="#D2DFCC" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="720" y="158" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">3</text>
+            <text x="720" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">3</text>
           </g>
           <text x="20" y="188" class="bar-label">Sep</text>
           <g>
@@ -1191,17 +1207,17 @@
           <g>
             <title>Friday, 4 September 2026 &mdash; 4h at a negative price</title>
             <rect x="116" y="174" width="19" height="19" rx="3" fill="#C9DBC4" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="126" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">4</text>
+            <text x="126" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">4</text>
           </g>
           <g>
             <title>Saturday, 5 September 2026 &mdash; 7h at a negative price</title>
             <rect x="138" y="174" width="19" height="19" rx="3" fill="#A5C296" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="148" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">7</text>
+            <text x="148" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">7</text>
           </g>
           <g>
             <title>Sunday, 6 September 2026 &mdash; 7.5h at a negative price</title>
             <rect x="160" y="174" width="19" height="19" rx="3" fill="#9FBE8E" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="170" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">8</text>
+            <text x="170" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">8</text>
           </g>
           <g>
             <title>Monday, 7 September 2026</title>
@@ -1226,7 +1242,7 @@
           <g>
             <title>Saturday, 12 September 2026 &mdash; 5h at a negative price</title>
             <rect x="292" y="174" width="19" height="19" rx="3" fill="#BDD3B5" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="302" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">5</text>
+            <text x="302" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">5</text>
           </g>
           <g>
             <title>Sunday, 13 September 2026</title>
@@ -1247,22 +1263,22 @@
           <g>
             <title>Thursday, 17 September 2026 &mdash; 4h at a negative price</title>
             <rect x="402" y="174" width="19" height="19" rx="3" fill="#C9DBC4" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="412" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">4</text>
+            <text x="412" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">4</text>
           </g>
           <g>
             <title>Friday, 18 September 2026 &mdash; 1.5h at a negative price</title>
             <rect x="424" y="174" width="19" height="19" rx="3" fill="#E1E5D7" stroke="#E3DED3" stroke-width="0.5"></rect>
-            <text x="434" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">2</text>
+            <text x="434" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">2</text>
           </g>
           <g>
             <title>Saturday, 19 September 2026 &mdash; 15h at a negative price</title>
             <rect x="446" y="174" width="19" height="19" rx="3" fill="#398151" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="456" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#F5F3EE">15</text>
+            <text x="456" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#F5F3EE">15</text>
           </g>
           <g>
             <title>Sunday, 20 September 2026 &mdash; 16h at a negative price</title>
             <rect x="468" y="174" width="19" height="19" rx="3" fill="#2F7A4C" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="478" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#F5F3EE">16</text>
+            <text x="478" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#F5F3EE">16</text>
           </g>
           <g>
             <title>Monday, 21 September 2026</title>
@@ -1291,7 +1307,7 @@
           <g>
             <title>Sunday, 27 September 2026 &mdash; 5.5h at a negative price</title>
             <rect x="622" y="174" width="19" height="19" rx="3" fill="#B7CEAD" stroke="#BEA65A" stroke-width="1.4"></rect>
-            <text x="632" y="188" text-anchor="middle" font-size="8" font-weight="700" fill="#2A2824">6</text>
+            <text x="632" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#2A2824">6</text>
           </g>
           <g>
             <title>Monday, 28 September 2026</title>
@@ -1317,9 +1333,10 @@
           <text x="286" y="220" class="bar-label" font-size="10">weekend</text>
         </svg>
     <!-- END:chart_neg_calendar -->
+        </div>
       </div>
     </div>
-    <p>Saturdays and Sundays alone account for roughly three-quarters of every negative-price hour since April. The two brightest days on the calendar are 19–20 September, when prices were negative almost around the clock.</p>
+    <p style="margin-top:22px;">Saturdays and Sundays alone account for roughly three-quarters of every negative-price hour since April. The two brightest days on the calendar are 19–20 September, when prices were negative almost around the clock.</p>
   </section>
 
   <section>
@@ -1352,10 +1369,16 @@
   </article>
 
   <footer class="site">
-    <p><strong style="color:var(--text)">A note on the numbers:</strong> the EV energy figures are metered directly by the home charger, with each half-hour of consumption priced using the corresponding Octopus Agile rate. Household and EV figures are grouped by calendar month rather than Octopus billing period, and April specifically runs from the 13th only, since that's when this account joined Agile — no EV charging or Agile pricing applies before that date. The figures shown here are aggregated and rounded from the underlying half-hourly data, and everything has been cross-checked against Octopus billing statements for <!--STAT:period-->April–September 2026<!--/STAT-->.</p>
-    <p>A bit more detail on the missed negative slots, for anyone curious: 37% of missed office-day slots and 66% of missed weekend slots followed a large charge in the prior day or two, suggesting the battery was often already topped up rather than the car simply being away. Of the ten biggest of those prior top-ups, only four were at positive rates, averaging just 3.1p &mdash; the rest were themselves at negative or near-zero prices. And purely as a hypothetical ceiling, not something I actually did: a second car filling every one of the 183 missed slots at my charger's usual rate could have taken on roughly 620 kWh, for a net credit of around £20.</p>
-    <p>This is my personal experience rather than energy or financial advice. Tariffs, charging equipment, driving patterns and electricity prices vary, so your results could be very different. I'll update this page as each new month of data comes in.</p>
-    <p>This is an independent personal blog and is not affiliated with, sponsored by, or endorsed by any company mentioned. Octopus, Octopus Agile, Andersen and Geely are trademarks of their respective owners, used here only to describe my own real-world experience with their products.</p>
+    <p><strong style="color:var(--text)">A note on the numbers:</strong> EV energy is metered directly by the home charger, with every half-hour priced at the real Octopus Agile rate. No bills, account details or exact address are included.</p>
+    <details class="aside">
+      <summary>Methodology &amp; extra detail, for the data-curious</summary>
+      <div class="inner">
+        <p style="font-size:13px; color:var(--text-dim); margin:0 0 12px;">Household and EV figures are grouped by calendar month rather than Octopus billing period, and April specifically runs from the 13th only, since that's when this account joined Agile — no EV charging or Agile pricing applies before that date. Figures are aggregated and rounded from the underlying half-hourly data, and have been cross-checked against Octopus billing statements for <!--STAT:period-->April–September 2026<!--/STAT-->.</p>
+        <p style="font-size:13px; color:var(--text-dim); margin:0;">On the missed negative slots: 37% of missed office-day slots and 66% of missed weekend slots followed a large charge in the prior day or two, suggesting the battery was often already topped up rather than the car simply being away. Of the ten biggest of those prior top-ups, only four were at positive rates, averaging just 3.1p &mdash; the rest were themselves at negative or near-zero prices. And purely as a hypothetical ceiling, not something I actually did: a second car filling every one of the 183 missed slots at my charger's usual rate could have taken on roughly 620 kWh, for a net credit of around £20.</p>
+      </div>
+    </details>
+    <p style="margin-top:22px;">This is my personal experience rather than energy or financial advice. Tariffs, charging equipment, driving patterns and electricity prices vary, so your results could be very different. I'll update this page as each new month of data comes in.</p>
+    <p style="font-size:12px; color:var(--text-dim);">This is an independent personal blog and is not affiliated with, sponsored by, or endorsed by any company mentioned. Octopus, Octopus Agile, Andersen and Geely are trademarks of their respective owners, used here only to describe my own real-world experience with their products.</p>
     <p class="updated">Last updated: <!--STAT:updated-->October 2026<!--/STAT--> · covers <!--STAT:period-->April–September 2026<!--/STAT--></p>
   </footer>
 
